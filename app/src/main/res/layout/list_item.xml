@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary"
+    android:orientation="vertical"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="10dp"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/nameLabel"
+        style="@style/DetailsTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название: "
+        app:layout_constraintTop_toTopOf="@id/guidelineTop"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        tools:layout_editor_absoluteY="37dp" />
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/nameLabel"
+        app:layout_constraintBaseline_toBaselineOf="@id/nameLabel"
+        style="@style/DetailsTextViewStyle"
+        app:layout_constrainedWidth="true"
+        android:textStyle="bold"
+        android:text="Доллар США(USD)"/>
+
+    <TextView
+        android:id="@+id/nominalLabel"
+        style="@style/DetailsTextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Номинал: "
+
+        app:layout_constraintEnd_toEndOf="@+id/nameLabel"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView" />
+    <TextView
+        android:id="@+id/nominalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/nominalLabel"
+        app:layout_constraintBaseline_toBaselineOf="@id/nominalLabel"
+        style="@style/DetailsTextViewStyle"
+        android:textStyle="bold"
+        android:text="1"/>
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/DetailsTextViewStyle"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/nominalTextView"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
+        android:text="Стоимость(RUB): "
+        />
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/priceLabel"
+        app:layout_constraintBaseline_toBaselineOf="@id/priceLabel"
+        style="@style/DetailsTextViewStyle"
+        android:textStyle="bold"
+        android:text="73.5332"
+        android:maxLength="7"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
