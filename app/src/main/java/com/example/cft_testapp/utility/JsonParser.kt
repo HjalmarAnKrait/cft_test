@@ -10,19 +10,14 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-//TODO добавить обработчиков ошибки(опционально), парсинг даты и сравнение с текущей, сохранение на потом оставить
 class JsonParser(var jsonObject: JSONObject = JSONObject()) {
     private val format = SimpleDateFormat("yyyy-MM-dd")
 
     fun getCurrencyListOptional(): Optional<List<CurrencyModel>> {
         val jsonMap = jsonObject.getJSONObject("Valute")
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val adapter = moshi.adapter<Map<String, CurrencyModel>>(
-            Types.newParameterizedType(
-                Map::class.java, String::class.java,
-                CurrencyModel::class.java
-            )
-        )
+        val type = Types.newParameterizedType(Map::class.java, String::class.java, CurrencyModel::class.java)
+        val adapter = moshi.adapter<Map<String, CurrencyModel>>(type)
         return Optional.of(adapter.fromJson(jsonMap.toString())!!.toList().map {it.second})
     }
 

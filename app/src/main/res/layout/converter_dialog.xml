@@ -1,213 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/primary"
-    android:orientation="vertical"
-    >
-    <ImageButton
-        android:id="@+id/exitDialogButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:tint="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineStart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+<layout  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="currency"
+            type="com.example.cft_testapp.model.CurrencyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp"
-        app:layout_constraintStart_toStartOf="parent" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineEnd"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTop"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="10dp"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineBottom"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-       app:layout_constraintGuide_end="10dp"
-        />
-
-
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        style="@style/DetailsTextViewStyle"
-        android:text="Курс на 10.09.2021"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop"/>
-    <TextView
-        android:id="@+id/nameLabel"
-        app:layout_constraintTop_toBottomOf="@id/dateTextView"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        style="@style/DetailsTextViewStyle"
-        android:text="Название: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/nameLabel"
-        app:layout_constraintBaseline_toBaselineOf="@id/nameLabel"
-        style="@style/DetailsTextViewStyle"
-        app:layout_constrainedWidth="true"
-        android:textStyle="bold"
-        android:text="Доллар США(USD)"/>
-    <TextView
-        android:id="@+id/nominalLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView"
-        android:text="Номинал: "
-        style="@style/DetailsTextViewStyle"
-        />
-    <TextView
-        android:id="@+id/nominalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/nominalLabel"
-        app:layout_constraintBaseline_toBaselineOf="@id/nominalLabel"
-        style="@style/DetailsTextViewStyle"
-        android:textStyle="bold"
-        android:text="1"/>
-    <TextView
-        android:id="@+id/priceLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/DetailsTextViewStyle"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/nominalTextView"
-        android:text="Стоимость(RUB): "
-        />
-    <TextView
-        android:id="@+id/priceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/priceLabel"
-        app:layout_constraintBaseline_toBaselineOf="@id/priceLabel"
-        style="@style/DetailsTextViewStyle"
-        android:textStyle="bold"
-        android:text="73.5332"
-        android:maxLength="7"/>
-    <TextView
-        android:id="@+id/converterLabel"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/priceTextView"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        style="@style/DetailsTextViewStyle"
-        android:text="Конвертер валюты"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/converterLabel"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
-        android:background="@drawable/rounded_background">
-
-        <TextView
-            android:id="@+id/toConvertLabel"
-            style="@style/DetailsTextViewStyle"
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"
-            android:text="USD"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/toConvertEditText"
-            style="@style/DetailsTextViewStyle"
+        >
+        <ImageButton
+            android:id="@+id/exitDialogButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:hint="0"
-            android:inputType="numberDecimal"
-            android:maxLength="6"
-            android:minHeight="48dp"
-            app:layout_constraintBaseline_toBaselineOf="@id/toConvertLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/toConvertLabel" />
-
-        <TextView
-            android:id="@+id/resultLabel"
-            style="@style/DetailsTextViewStyle"
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toConvertEditText"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"
-            android:text="RUB"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/resultTextView"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"
+            app:layout_constraintStart_toStartOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@id/resultLabel"
-            app:layout_constraintStart_toEndOf="@id/resultLabel"
-            android:text="0.0"
-            style="@style/DetailsTextViewStyle"
-            android:layout_marginStart="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:maxLength="10"/>
-        <Button
-            android:id="@+id/convertButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Конвертировать"
-            android:layout_marginTop="10dp"
-            android:textAllCaps="false"
-            android:textSize="16dp"
-            app:layout_constraintTop_toBottomOf="@id/resultTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/button_selector"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"
             app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="10dp"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="10dp"
+            />
+
 
         <TextView
-            android:id="@+id/tipTextView"
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
             style="@style/DetailsTextViewStyle"
+            android:text="Курс на 10.09.2021"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop"/>
+        <TextView
+            android:id="@+id/nameLabel"
+            app:layout_constraintTop_toBottomOf="@id/dateTextView"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            style="@style/DetailsTextViewStyle"
+            android:text="Название: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/nameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/nameLabel"
+            app:layout_constraintBaseline_toBaselineOf="@id/nameLabel"
+            style="@style/DetailsTextViewStyle"
+            app:layout_constrainedWidth="true"
+            android:textStyle="bold"
+            android:text=""/>
+        <TextView
+            android:id="@+id/nominalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            android:text="Номинал: "
+            style="@style/DetailsTextViewStyle"
+            />
+        <TextView
+            android:id="@+id/nominalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/nominalLabel"
+            app:layout_constraintBaseline_toBaselineOf="@id/nominalLabel"
+            style="@style/DetailsTextViewStyle"
+            android:textStyle="bold"
+            android:text="@{Integer.toString(currency.nominal)}"/>
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/DetailsTextViewStyle"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/nominalTextView"
+            android:text="Стоимость(RUB): "
+            />
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/priceLabel"
+            app:layout_constraintBaseline_toBaselineOf="@id/priceLabel"
+            style="@style/DetailsTextViewStyle"
+            android:textStyle="bold"
+            android:text="@{Double.toString(currency.value)}"
+            android:maxLength="7"/>
+        <TextView
+            android:id="@+id/converterLabel"
             android:layout_marginTop="10dp"
-            android:visibility="visible"
-            android:drawablePadding="5dp"
-            android:drawableLeft="@android:drawable/ic_dialog_alert"
-            android:drawableTint="@android:color/holo_red_dark"
-            android:text="Введённое число должно быть кратно номиналу и не равняться нулю."
-            android:textColor="@android:color/holo_red_dark"
-            android:textSize="13dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/convertButton" />
+            app:layout_constraintTop_toBottomOf="@id/priceTextView"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            style="@style/DetailsTextViewStyle"
+            android:text="Конвертер валюты"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/converterLabel"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
+            android:background="@drawable/rounded_background">
+
+            <TextView
+                android:id="@+id/toConvertLabel"
+                style="@style/DetailsTextViewStyle"
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
+                android:text="@{currency.charCode}"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/toConvertEditText"
+                style="@style/DetailsTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:hint="0"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
+                android:minHeight="48dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/toConvertLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/toConvertLabel" />
+
+            <TextView
+                android:id="@+id/resultLabel"
+                style="@style/DetailsTextViewStyle"
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toConvertEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
+                android:text="RUB"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/resultTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/resultLabel"
+                app:layout_constraintStart_toEndOf="@id/resultLabel"
+                android:text="0.0"
+                style="@style/DetailsTextViewStyle"
+                android:layout_marginStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:maxLength="10"/>
+            <Button
+                android:id="@+id/convertButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Конвертировать"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                app:layout_constraintTop_toBottomOf="@id/resultTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/button_selector"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tipTextView"
+                style="@style/DetailsTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@android:drawable/ic_dialog_alert"
+                android:drawableTint="@android:color/holo_red_dark"
+                android:text="Введённое число должно быть кратно номиналу и не равняться нулю."
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/convertButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

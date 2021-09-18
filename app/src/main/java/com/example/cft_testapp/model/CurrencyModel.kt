@@ -1,8 +1,10 @@
 package com.example.cft_testapp.model
 
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 data class CurrencyModel(
     @Json(name = "CharCode")
@@ -19,4 +21,4 @@ data class CurrencyModel(
     val previous: Double,
     @Json(name = "Value")
     val value: Double
-)
+) : Serializable
